@@ -1,6 +1,6 @@
 .EXPORT_ALL_VARIABLES:
 
-NAME := $(notdir $(CURDIR))
+NAME := minishell
 NPWD := $(CURDIR)/$(NAME)
 
 # all source code .c files must to places in to "src" folder(or sub-dirs) only.
