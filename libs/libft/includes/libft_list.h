@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 13:14:44 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/12/23 20:59:50 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/24 20:07:44 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 struct	s_list
 {
-	void *restrict 			data;
+	void *restrict			data;
 	size_t					data_size;
-	struct s_list *restrict next;
+	struct s_list *restrict	next;
 };
 
 typedef struct s_list	t_list;
