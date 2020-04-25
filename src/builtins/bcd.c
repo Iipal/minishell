@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msh_errno.h                                        :+:      :+:    :+:   */
+/*   bcd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 20:12:39 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/24 20:32:05 by tmaluh           ###   ########.fr       */
+/*   Created: 2020/04/25 20:54:36 by tmaluh            #+#    #+#             */
+/*   Updated: 2020/04/25 21:33:28 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MSH_ERRNO_H
-# define MSH_ERRNO_H
+#include "minishell.h"
 
-typedef enum	e_msh_errno
+enum e_builtin_status	bcd(const struct s_command *restrict cmd)
 {
-	MSH_ESUCCESS,
-	MSH_EGNL,
-} __attribute__((packed))				t_msh_errno;
+	const char *restrict	chdir_path = cmd->argv[1];
 
-#endif /* MSH_ERRNO_H */
+	if (!chdir_path && !(chdir_path = getenv("HOME")))
+		chdir_path = getpwuid(getuid())->pw_dir;
+	if (-1 == chdir(chdir_path))
+	{
+		ft_dprintf(STDERR_FILENO, "cd: can't go to %s.\n", chdir_path);
+		return (e_bstatus_invalid);
+	}
+	return (e_bstatus_valid);
+}

@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/15 17:09:12 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/02/01 19:16:12 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/24 23:07:51 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ bool __attribute__((__overloadable__))
 ft_strishex(const char *restrict str, size_t n);
 
 /*
-**	\return true is \param str contain only hex digits or false if not.
+**	\return true is \param str contain only alphabet symbols or false if not.
 */
 bool
 ft_strisa(const char *restrict str);

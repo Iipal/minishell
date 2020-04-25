@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   benv.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 20:23:40 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/25 21:25:49 by tmaluh           ###   ########.fr       */
+/*   Created: 2020/04/25 20:54:36 by tmaluh            #+#    #+#             */
+/*   Updated: 2020/04/25 21:25:22 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int main(void)
+enum e_builtin_status	benv(const struct s_command *restrict cmd)
 {
-	char *restrict	line;
-	int				ret;
-	bool			stop;
+	size_t				i;
+	struct s_command	c;
 
-	stop = false;
-	line = NULL;
-	ret = 0;
-	while (!stop)
+	i = ~0UL;
+	if (1 == cmd->argc)
 	{
-		ft_putstr_fd("$> ", STDERR_FILENO);
-		if (!(ret = ft_gnl(STDIN_FILENO, &line)) || 0 > ret)
-		{
-			ft_putstr_fd("input error occured.\n", STDERR_FILENO);
-			break ;
-		}
-		stop = procces_line(line);
+		while (cmd->argc > ++i)
+			ft_putendl(environ[i]);
 	}
+	else
+	{
+		c.argc = cmd->argc - 1;
+		MSH_ASSERT(c.argv = ft_memalloc(sizeof(*c.argv) * c.argc));
+		while (c.argc > ++i)
+			c.argv[i] = cmd->argv[i + 1];
+		command_run(&c);
+		free(c.argv);
+	}
+	return (e_bstatus_valid);
 }

@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   bexit.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 20:23:40 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/25 21:25:49 by tmaluh           ###   ########.fr       */
+/*   Created: 2020/04/25 20:54:36 by tmaluh            #+#    #+#             */
+/*   Updated: 2020/04/25 21:33:19 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int main(void)
+enum e_builtin_status	bexit(const struct s_command *restrict cmd)
 {
-	char *restrict	line;
-	int				ret;
-	bool			stop;
-
-	stop = false;
-	line = NULL;
-	ret = 0;
-	while (!stop)
-	{
-		ft_putstr_fd("$> ", STDERR_FILENO);
-		if (!(ret = ft_gnl(STDIN_FILENO, &line)) || 0 > ret)
-		{
-			ft_putstr_fd("input error occured.\n", STDERR_FILENO);
-			break ;
-		}
-		stop = procces_line(line);
-	}
+	(void)cmd;
+	return (e_bstatus_exit);
 }

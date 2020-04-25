@@ -40,7 +40,7 @@ endif
 
 # Compiler settings.
 CC     := clang
-CFLAGS := -Wall -Wextra -Werror -Wunused -MMD -std=c11
+CFLAGS := -Wall -Wextra -Werror -Wunused -MMD -std=c11 -flto
 
 ifeq (,$(shell command -v clang 2> /dev/null))
 CC     := gcc

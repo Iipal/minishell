@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   bsetenv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/24 20:23:40 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/25 21:25:49 by tmaluh           ###   ########.fr       */
+/*   Created: 2020/04/25 20:54:36 by tmaluh            #+#    #+#             */
+/*   Updated: 2020/04/25 21:33:06 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int main(void)
+enum e_builtin_status	bsetenv(const struct s_command *restrict cmd)
 {
-	char *restrict	line;
-	int				ret;
-	bool			stop;
+	char	*value;
 
-	stop = false;
-	line = NULL;
-	ret = 0;
-	while (!stop)
+	if (1 == cmd->argc)
+		benv(cmd);
+	else
 	{
-		ft_putstr_fd("$> ", STDERR_FILENO);
-		if (!(ret = ft_gnl(STDIN_FILENO, &line)) || 0 > ret)
+		value = ((3 == cmd->argc) ? cmd->argv[2] : "");
+		if (-1 == setenv(cmd->argv[1], value, 1))
 		{
-			ft_putstr_fd("input error occured.\n", STDERR_FILENO);
-			break ;
+			ft_dprintf(STDERR_FILENO,
+				"setenv: failed to setenv '$%s' with value '%s'.\n",
+				cmd->argv[1], value);
+			return (e_bstatus_invalid);
 		}
-		stop = procces_line(line);
 	}
+	return (e_bstatus_valid);
 }
