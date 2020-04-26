@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 20:03:29 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/25 21:34:04 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/26 11:46:35 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 
 bool
 procces_line(char *restrict line);
+void
+process_special_symbols(struct s_command *restrict cmd);
 
 void
 line_to_command(char *restrict line, struct s_command *restrict cmd);

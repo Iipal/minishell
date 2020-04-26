@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:04:01 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/25 21:25:40 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/26 13:08:20 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ procces_line(char *restrict line)
 	{
 		ft_memset(&cmd, 0, sizeof(cmd));
 		line_to_command(line, &cmd);
+		process_special_symbols(&cmd);
 		bst = command_tryrun_builtin(&cmd);
 		if (e_bstatus_exit == bst)
 			ret = true;
@@ -60,6 +61,5 @@ procces_line(char *restrict line)
 				command_run(&cmd);
 		command_free(&cmd);
 	}
-	ft_strdel(&line);
 	return (ret);
 }
