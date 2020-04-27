@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:04:26 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 19:58:21 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 20:11:21 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ command_run(const struct s_command *restrict cmd)
 	child = fork();
 	if (!child)
 	{
-		execve(cmd->argv[0], cmd->argv, environ);
+		execve(cmd->argv[0], cmd->argv, g_environ);
 		ft_dprintf(STDERR_FILENO, "minishell: command not found: %s\n", cmd->argv[0]);
 		return (EXIT_FAILURE);
 	}

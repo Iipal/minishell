@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 20:54:36 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/25 21:25:22 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 20:11:18 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ enum e_builtin_status	benv(const struct s_command *restrict cmd)
 	if (1 == cmd->argc)
 	{
 		while (cmd->argc > ++i)
-			ft_putendl(environ[i]);
+			ft_putendl(g_environ[i]);
 	}
 	else
 	{
