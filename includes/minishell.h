@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 20:03:29 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 19:42:53 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 20:12:30 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include <pwd.h>
 
 # ifdef __APPLE__
+#  include <crt_externs.h>
 #  define MSH_GET_ENVIRON *_NSGetEnviron()
 # else
 #  define MSH_GET_ENVIRON environ
