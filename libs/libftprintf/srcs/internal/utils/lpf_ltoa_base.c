@@ -6,12 +6,12 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/19 21:22:22 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/03/19 22:20:01 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 22:17:23 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define LIBFTPRINTF_INTERNAL
-# include "libftprintf_internal.h"
+#include "libftprintf_internal.h"
 #undef LIBFTPRINTF_INTERNAL
 
 char	*lpf_ultoap_base(unsigned long num, char *restrict dst, int base)

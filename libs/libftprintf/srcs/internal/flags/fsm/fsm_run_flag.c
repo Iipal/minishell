@@ -6,12 +6,12 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 21:41:17 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 22:15:49 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 22:17:23 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define LIBFTPRINTF_INTERNAL
-# include "libftprintf_internal.h"
+#include "libftprintf_internal.h"
 #undef LIBFTPRINTF_INTERNAL
 
 static inline bool __attribute__((always_inline))
