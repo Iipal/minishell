@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 15:13:55 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/02/01 19:16:12 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 18:45:48 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_memcmp(const void *restrict s1, const void *restrict s2, size_t n)
 {
-	const __u_char	*str1 = (const __u_char*)s1;
-	const __u_char	*str2 = (const __u_char*)s2;
+	const unsigned char	*str1 = (const unsigned char*)s1;
+	const unsigned char	*str2 = (const unsigned char*)s2;
 
 	if (str1 == str2 || !n)
 		return (0);

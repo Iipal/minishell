@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 13:43:44 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/12/23 20:56:22 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 18:46:09 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memmove(void *restrict dest, const void *restrict src, size_t len)
 {
-	const __u_char	*sc = (const __u_char*)src;
-	__u_char		*dst;
-	size_t			i;
-	ssize_t			slen;
+	const unsigned char	*sc = (const unsigned char*)src;
+	unsigned char		*dst;
+	size_t				i;
+	ssize_t				slen;
 
 	i = ~0UL;
 	dst = (__u_char*)dest;
