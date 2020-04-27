@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 11:46:14 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 21:39:21 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 22:50:12 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static inline size_t	get_envvar_delimlen(char *restrict str)
 	if (ft_strchr(str, ' '))
 		return (ft_strlen(str));
 	i = 0UL;
-	while (str[++i])
+	while (str[i])
 		if (ft_isalpha(str[i]))
 			++i;
 		else
