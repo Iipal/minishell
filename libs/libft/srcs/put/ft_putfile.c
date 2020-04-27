@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 12:21:35 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/02/01 19:16:12 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 21:50:33 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 bool	ft_putfile(const char *restrict filename)
 {
 	const int	fd = open(filename, O_RDONLY);
-	char			*temp;
+	char		*temp;
 
 	if (0 > fd)
 		return (false);

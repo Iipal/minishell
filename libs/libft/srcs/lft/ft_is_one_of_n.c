@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 08:33:45 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/12/23 20:21:19 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 21:47:58 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ size_t __attribute__((__overloadable__))
 }
 
 size_t __attribute__((__overloadable__))
-	ft_is_one_of_n(char *restrict  cmp, size_t n, ...)
+	ft_is_one_of_n(char *restrict cmp, size_t n, ...)
 {
 	va_list	ap;
 	size_t	i;
@@ -87,7 +87,7 @@ size_t __attribute__((__overloadable__))
 }
 
 size_t __attribute__((__overloadable__))
-	ft_is_one_of_n(char *restrict  cmp,
+	ft_is_one_of_n(char *restrict cmp,
 		size_t cmp_len, size_t n, ...)
 {
 	va_list	ap;

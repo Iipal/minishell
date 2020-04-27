@@ -6,15 +6,15 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 00:55:06 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/12/23 20:21:19 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 21:47:26 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 inline void __attribute__((__overloadable__))
-	ft_swap(char *restrict  a,
-			char *restrict  b)
+	ft_swap(char *restrict a,
+			char *restrict b)
 {
 	char	c;
 
@@ -24,8 +24,8 @@ inline void __attribute__((__overloadable__))
 }
 
 inline void __attribute__((__overloadable__))
-	ft_swap(short *restrict  a,
-			short *restrict  b)
+	ft_swap(short *restrict a,
+			short *restrict b)
 {
 	short	c;
 
@@ -35,8 +35,8 @@ inline void __attribute__((__overloadable__))
 }
 
 inline void __attribute__((__overloadable__))
-	ft_swap(int *restrict  a,
-			int *restrict  b)
+	ft_swap(int *restrict a,
+			int *restrict b)
 {
 	int	c;
 
@@ -46,8 +46,8 @@ inline void __attribute__((__overloadable__))
 }
 
 inline void __attribute__((__overloadable__))
-	ft_swap(long *restrict  a,
-			long *restrict  b)
+	ft_swap(long *restrict a,
+			long *restrict b)
 {
 	long	c;
 

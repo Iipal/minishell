@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 00:07:31 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/02/01 19:16:25 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 21:45:55 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	add_aux(long n, long b,
 	out[(*p)++] = base[ABS(n % b)];
 }
 
-char	*ft_ltoa_base(long value, uint8_t base)
+char		*ft_ltoa_base(long value, uint8_t base)
 {
 	char	*out;
 	long	p;

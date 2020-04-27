@@ -6,13 +6,13 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 18:07:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/03/19 22:00:19 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 21:51:54 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #define LIBFTPRINTF_INTERNAL
-# include "libftprintf_internal.h"
+#include "libftprintf_internal.h"
 #undef LIBFTPRINTF_INTERNAL
 
 inline int	ft_vsnprintf(char *restrict dst,
@@ -21,7 +21,7 @@ inline int	ft_vsnprintf(char *restrict dst,
 				va_list ap)
 {
 	struct s_lpf_buf_	*buf;
-	int	out;
+	int					out;
 
 	out = 0;
 	if (!(buf = internal_vprintf(format, ap)))

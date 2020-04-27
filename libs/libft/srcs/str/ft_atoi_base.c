@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 16:46:01 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/02/01 19:16:12 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 21:45:30 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static inline int __attribute__((__always_inline__))
 int
 	ft_atoi_base(const char *str, int8_t base)
 {
-	int		num;
+	int			num;
 	int8_t		sign;
 	const char	valid_hex[24] = "0123456789abcdef";
 

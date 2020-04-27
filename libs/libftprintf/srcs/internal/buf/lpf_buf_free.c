@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lpf_buf_free_.c                                     :+:      :+:    :+:   */
+/*   lpf_buf_free_.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 14:52:59 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/12/19 15:22:35 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 21:55:22 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define LIBFTPRINTF_INTERNAL
-# include "libftprintf_internal.h"
+#include "libftprintf_internal.h"
 #undef LIBFTPRINTF_INTERNAL
 
 inline void

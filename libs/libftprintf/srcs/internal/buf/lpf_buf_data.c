@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lpf_buf_data_.c                                     :+:      :+:    :+:   */
+/*   lpf_buf_data_.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 21:55:40 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/12/19 22:11:20 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 21:55:42 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define LIBFTPRINTF_INTERNAL
-# include "libftprintf_internal.h"
+#include "libftprintf_internal.h"
 #undef LIBFTPRINTF_INTERNAL
 
 inline void __attribute__((__overloadable__))
