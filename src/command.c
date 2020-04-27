@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:04:26 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 20:11:21 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 20:24:23 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ static const struct s_builtin_dataset	g_bds[] = {
 	{NULL, NULL, 0}
 };
 
-void
-command_free(struct s_command *restrict cmd)
+void					command_free(struct s_command *restrict cmd)
 {
 	size_t	i;
 
@@ -38,8 +37,8 @@ command_free(struct s_command *restrict cmd)
 	}
 }
 
-enum e_builtin_status
-command_tryrun_builtin(const struct s_command *restrict cmd)
+enum e_builtin_status	command_tryrun_builtin(
+	const struct s_command *restrict cmd)
 {
 	size_t					i;
 	enum e_builtin_status	bst;
@@ -65,8 +64,7 @@ command_tryrun_builtin(const struct s_command *restrict cmd)
 	return (bst);
 }
 
-int
-command_run(const struct s_command *restrict cmd)
+int						command_run(const struct s_command *restrict cmd)
 {
 	pid_t	child;
 
@@ -74,7 +72,8 @@ command_run(const struct s_command *restrict cmd)
 	if (!child)
 	{
 		execve(cmd->argv[0], cmd->argv, g_environ);
-		ft_dprintf(STDERR_FILENO, "minishell: command not found: %s\n", cmd->argv[0]);
+		ft_dprintf(STDERR_FILENO,
+			"minishell: command not found: %s\n", cmd->argv[0]);
 		return (EXIT_FAILURE);
 	}
 	else
@@ -84,8 +83,8 @@ command_run(const struct s_command *restrict cmd)
 	}
 }
 
-void
-line_to_command(char *restrict line, struct s_command *restrict cmd)
+void					line_to_command(char *restrict line,
+	struct s_command *restrict cmd)
 {
 	const char	*delim = ft_strchr(line, ' ');
 	char		*endptr;
@@ -105,8 +104,8 @@ line_to_command(char *restrict line, struct s_command *restrict cmd)
 		cmd->argv[0] = ft_strndup(line, delim - line);
 		while (delim && cmd->argc > ++i)
 		{
-			duplen = (!(endptr = ft_strchr(++delim, ' ')))
-				? ft_strlen(delim) : (endptr - delim);
+			endptr = ft_strchr(++delim, ' ');
+			duplen = (!endptr ? ft_strlen(delim) : (endptr - delim));
 			MSH_ASSERT(cmd->argv[i] = ft_strndup(delim, duplen));
 			delim = endptr;
 		}

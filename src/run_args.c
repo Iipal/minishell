@@ -6,13 +6,13 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 15:51:33 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 20:04:06 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 20:31:05 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int run_args(int argc, char *argv[])
+int	run_args(int argc, char *argv[])
 {
 	struct s_command		cmd;
 	enum e_builtin_status	bst;
@@ -29,7 +29,7 @@ int run_args(int argc, char *argv[])
 	else if (e_bstatus_none == bst)
 	{
 		get_executable_full_path(&cmd.argv[0]);
-		return command_run(&cmd);
+		return (command_run(&cmd));
 	}
 	return (EXIT_FAILURE);
 }

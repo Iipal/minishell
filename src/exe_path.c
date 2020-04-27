@@ -6,14 +6,14 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:02:51 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 20:02:32 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 21:38:18 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static inline bool
-parse_dir_for_executable(char *restrict *restrict exe, const char *restrict dirpath)
+static inline bool	parse_dir_for_executable(char *restrict *restrict exe,
+	const char *restrict dirpath)
 {
 	DIR *restrict			dir;
 	struct dirent *restrict	d;
@@ -37,8 +37,8 @@ parse_dir_for_executable(char *restrict *restrict exe, const char *restrict dirp
 	return (!!d);
 }
 
-static inline bool
-parse_envpath(char *restrict *restrict exe, char *restrict envpath)
+static inline bool	parse_envpath(char *restrict *restrict exe,
+	char *restrict envpath)
 {
 	char *restrict	currpath;
 	char *restrict	sep;
@@ -61,11 +61,10 @@ parse_envpath(char *restrict *restrict exe, char *restrict envpath)
 			break ;
 		sep = endptr;
 	}
-	return ret;
+	return (ret);
 }
 
-void
-get_executable_full_path(char *restrict *restrict exe)
+void				get_executable_full_path(char *restrict *restrict exe)
 {
 	char *restrict	envpath;
 

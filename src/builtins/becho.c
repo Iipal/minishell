@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 20:54:36 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/25 21:20:53 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 21:40:07 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ static inline void		becho_help_message(void)
 
 enum e_builtin_status	becho(const struct s_command *restrict cmd)
 {
-	bool	is_trail_newline = true;
-	size_t	i = 0;
+	bool	is_trail_newline;
+	size_t	i;
 
+	is_trail_newline = true;
+	i = 0;
 	if (2 == cmd->argc && !strcmp("--help", cmd->argv[1]))
 	{
 		becho_help_message();

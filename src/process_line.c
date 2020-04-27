@@ -6,15 +6,13 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:04:01 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 20:04:11 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 20:47:27 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-
-static inline void
-trimm_extra_whitespaces(char *restrict *restrict line)
+static inline void	trimm_extra_whitespaces(char *restrict *restrict line)
 {
 	const size_t	start = ft_strnblank(*line);
 	char *restrict	copy;
@@ -37,8 +35,7 @@ trimm_extra_whitespaces(char *restrict *restrict line)
 	MSH_ASSERT(*line = ft_strndup(copy, n));
 }
 
-bool
-procces_line(char *restrict line)
+bool				procces_line(char *restrict line)
 {
 	struct s_command		cmd;
 	bool					ret;

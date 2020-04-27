@@ -6,14 +6,13 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 11:46:14 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/26 13:06:35 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 21:39:21 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static inline void
-paste_str_at_pos(char *restrict *restrict arg,
+static inline void		paste_str_at_pos(char *restrict *restrict arg,
 	char *restrict value,
 	char *restrict argpos,
 	size_t argpos_len)
@@ -32,8 +31,7 @@ paste_str_at_pos(char *restrict *restrict arg,
 	*arg = newarg;
 }
 
-static inline size_t
-get_envvar_delimlen(char *restrict str)
+static inline size_t	get_envvar_delimlen(char *restrict str)
 {
 	size_t	i;
 
@@ -48,8 +46,7 @@ get_envvar_delimlen(char *restrict str)
 	return (i);
 }
 
-static inline void
-process_envvar(char *restrict *restrict arg)
+static inline void		process_envvar(char *restrict *restrict arg)
 {
 	char *restrict	spec;
 	char *restrict	envvar;
@@ -70,8 +67,7 @@ process_envvar(char *restrict *restrict arg)
 		free(envvar);
 }
 
-static inline void
-process_tilde(char *restrict *restrict arg)
+static inline void		process_tilde(char *restrict *restrict arg)
 {
 	char *restrict	spec;
 
@@ -81,8 +77,7 @@ process_tilde(char *restrict *restrict arg)
 	process_tilde(arg);
 }
 
-void
-process_special_symbols(struct s_command *restrict cmd)
+void					process_special_symbols(struct s_command *restrict cmd)
 {
 	size_t	i;
 

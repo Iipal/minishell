@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 20:03:29 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 20:12:30 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 20:14:54 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,4 @@ bexit(const struct s_command *restrict cmd);
 enum e_builtin_status
 bhelp(const struct s_command *restrict cmd);
 
-#endif /* MINISHELL_H */
+#endif
