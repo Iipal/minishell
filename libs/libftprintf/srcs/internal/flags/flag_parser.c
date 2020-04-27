@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:18:35 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 21:59:29 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 22:32:54 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 static inline int8_t __attribute__((__always_inline__,__const__))
 	s_get_specificator_bit(char spec_ch)
 {
-	if ('-')
+	if ('-' == spec_ch)
 		return (PF_BIT_SPEC_MINUS);
-	else if ('.')
+	else if ('.' == spec_ch)
 		return (PF_BIT_SPEC_DOT);
 	else
 		return (-10);
@@ -28,15 +28,15 @@ static inline int8_t __attribute__((__always_inline__,__const__))
 static inline int8_t __attribute__((__always_inline__,__const__))
 	s_get_type_spec_bit(char spec_ch)
 {
-	if ('l')
+	if ('l' == spec_ch)
 		return (PF_BIT_TYPE_L);
-	else if ('h')
+	else if ('h' == spec_ch)
 		return (PF_BIT_TYPE_H);
-	else if ('j')
+	else if ('j' == spec_ch)
 		return (PF_BIT_TYPE_J);
-	else if ('t')
+	else if ('t' == spec_ch)
 		return (PF_BIT_TYPE_T);
-	else if ('z')
+	else if ('z' == spec_ch)
 		return (PF_BIT_TYPE_Z);
 	else
 		return (-1);

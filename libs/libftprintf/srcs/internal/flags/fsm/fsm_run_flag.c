@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 21:41:17 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 22:17:23 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 22:33:08 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ inline bool __attribute__((always_inline))
 		[fsm_flag_o] = { "o", flag_o },
 		[7] = { NULL, NULL }
 	};
-	enum e_fsm_flag_state			fn_i;
 	size_t							i;
 
 	i = 0UL;
