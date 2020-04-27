@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 17:43:45 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 18:45:42 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 18:48:48 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memccpy(void *restrict dest,
 	unsigned char		*dst;
 	size_t				i;
 
-	dst = (__u_char*)dest;
+	dst = (unsigned char*)dest;
 	i = ~0UL;
 	while (n > ++i)
 	{
