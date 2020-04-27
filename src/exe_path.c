@@ -6,56 +6,74 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:02:51 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/25 13:05:16 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 20:02:32 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 static inline bool
-search_in_usrbin(DIR *restrict usrbin, char *restrict *restrict exe)
+parse_dir_for_executable(char *restrict *restrict exe, const char *restrict dirpath)
 {
-	struct dirent	*d;
+	DIR *restrict			dir;
+	struct dirent *restrict	d;
 
-	while ((d = readdir(usrbin)))
+	if (access(dirpath, F_OK | X_OK))
+		return (false);
+	if (!(dir = opendir(dirpath)))
+		return (false);
+	while ((d = readdir(dir)))
 		if (!ft_strcmp(d->d_name, *exe))
 			break ;
 	if (d)
 	{
 		ft_strdel(&*exe);
-		*exe = ft_strnew(sizeof(DFLT_EXE_PATH) + strlen(d->d_name));
-		ft_strcpy(*exe, DFLT_EXE_PATH);
-		ft_strcpy(*exe + (sizeof(DFLT_EXE_PATH) - 1), "/");
-		ft_strcpy(*exe + sizeof(DFLT_EXE_PATH), d->d_name);
+		*exe = ft_strnew(ft_strlen(dirpath) + ft_strlen(d->d_name) + 1);
+		ft_strcpy(*exe, dirpath);
+		ft_strcpy(*exe + ft_strlen(dirpath), "/");
+		ft_strcpy(*exe + ft_strlen(dirpath) + 1, d->d_name);
 	}
-	return !!d;
+	closedir(dir);
+	return (!!d);
 }
 
-bool
-get_executable_full_path(char *restrict *restrict exe)
+static inline bool
+parse_envpath(char *restrict *restrict exe, char *restrict envpath)
 {
-	DIR	*restrict	usrbin;
+	char *restrict	currpath;
+	char *restrict	sep;
+	char *restrict	endptr;
+	size_t			pathlen;
 	bool			ret;
 
-	if (strchr(*exe, '/'))
-		return (true);
-	if (access(DFLT_EXE_PATH, F_OK | X_OK))
+	ret = false;
+	sep = ft_strchr(envpath, ':');
+	while (sep)
 	{
-		ft_dprintf(STDERR_FILENO,
-			"You don't have permission to run '%s' from '" DFLT_EXE_PATH "'.\n",
-			*exe);
-		return (false);
+		if (!(endptr = ft_strchr(sep + 1, ':')))
+			pathlen = ft_strlen(sep + 1);
+		else
+			pathlen = (endptr - (sep + 1));
+		MSH_ASSERT(currpath = ft_strndup(sep + 1, pathlen));
+		ret = parse_dir_for_executable(exe, currpath);
+		ft_strdel(&currpath);
+		if (ret)
+			break ;
+		sep = endptr;
 	}
-	if (!(usrbin = opendir(DFLT_EXE_PATH)))
+	return ret;
+}
+
+void
+get_executable_full_path(char *restrict *restrict exe)
+{
+	char *restrict	envpath;
+
+	if (!strchr(*exe, '/') && (envpath = getenv("PATH")))
 	{
-		ft_dprintf(STDERR_FILENO, "Can't open '" DFLT_EXE_PATH
-			"' to get full path to executable.\n");
-		return (false);
+		if (!ft_strchr(envpath, ':'))
+			parse_dir_for_executable(exe, envpath);
+		else
+			parse_envpath(exe, envpath);
 	}
-	ret = search_in_usrbin(usrbin, exe);
-	if (!ret)
-		ft_dprintf(STDERR_FILENO, "Can't find '%s' in '" DFLT_EXE_PATH "'.\n",
-			*exe);
-	closedir(usrbin);
-	return (ret);
 }

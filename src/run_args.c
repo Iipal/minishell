@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 15:51:33 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 15:59:40 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 20:04:06 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ int run_args(int argc, char *argv[])
 	bst = command_tryrun_builtin(&cmd);
 	if (e_bstatus_exit == bst)
 		return (EXIT_SUCCESS);
-	else if (e_bstatus_none == bst
-	&& get_executable_full_path(&cmd.argv[0]))
+	else if (e_bstatus_none == bst)
+	{
+		get_executable_full_path(&cmd.argv[0]);
 		return command_run(&cmd);
-	return (EXIT_SUCCESS);
+	}
+	return (EXIT_FAILURE);
 }

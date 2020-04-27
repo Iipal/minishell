@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:04:01 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 15:59:39 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 20:04:11 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,11 @@ procces_line(char *restrict line)
 		bst = command_tryrun_builtin(&cmd);
 		if (e_bstatus_exit == bst)
 			ret = true;
-		else if (e_bstatus_none == bst
-		&& get_executable_full_path(&cmd.argv[0]))
+		else if (e_bstatus_none == bst)
+		{
+			get_executable_full_path(&cmd.argv[0]);
 			command_run(&cmd);
+		}
 		command_free(&cmd);
 	}
 	return (ret);

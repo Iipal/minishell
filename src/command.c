@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:04:26 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 16:00:26 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 19:58:21 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ command_run(const struct s_command *restrict cmd)
 	if (!child)
 	{
 		execve(cmd->argv[0], cmd->argv, environ);
-		ft_dprintf(STDERR_FILENO, "failed to run: '%s'.\n", cmd->argv[0]);
+		ft_dprintf(STDERR_FILENO, "minishell: command not found: %s\n", cmd->argv[0]);
 		return (EXIT_FAILURE);
 	}
 	else
@@ -97,7 +97,7 @@ line_to_command(char *restrict line, struct s_command *restrict cmd)
 		delim = ft_strchr(delim + 1, ' ');
 	MSH_ASSERT(cmd->argv = ft_memalloc(sizeof(*(cmd->argv)) * (cmd->argc + 1)));
 	if (1 == cmd->argc)
-		cmd->argv[0] = ft_strdup(line);
+		MSH_ASSERT(cmd->argv[0] = ft_strdup(line));
 	else
 	{
 		i = 0UL;
@@ -106,8 +106,8 @@ line_to_command(char *restrict line, struct s_command *restrict cmd)
 		while (delim && cmd->argc > ++i)
 		{
 			duplen = (!(endptr = ft_strchr(++delim, ' ')))
-				? strlen(delim) : (endptr - delim);
-			cmd->argv[i] = ft_strndup(delim, duplen);
+				? ft_strlen(delim) : (endptr - delim);
+			MSH_ASSERT(cmd->argv[i] = ft_strndup(delim, duplen));
 			delim = endptr;
 		}
 	}

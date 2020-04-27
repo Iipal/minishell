@@ -6,18 +6,21 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 20:23:40 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 15:52:14 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 19:28:40 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int main(int argc, char *argv[])
+char	**g_environ = NULL;
+
+int	main(int argc, char *argv[])
 {
 	char *restrict	line;
 	int				ret;
 	bool			stop;
 
+	g_environ = MSH_GET_ENVIRON;
 	if (1 < argc)
 		return run_args(argc - 1, argv + 1);
 	stop = false;
