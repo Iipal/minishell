@@ -28,6 +28,9 @@ $(OBJS): %.o: %.c
 $(ASMS): %.S: %.c
 	@$(call compilation,$<,$@)
 
+norme:
+	@norminette $(SRCS)
+
 -include configs/rules/STATUS.mk
 -include configs/rules/cleaners.mk
 

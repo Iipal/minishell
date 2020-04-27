@@ -40,6 +40,9 @@ $(LIBS_DIRS):
 	@$(MAKE) -C $@ $(MAKECMDGOALS)
  endif
 
+norme: $(LIBS_DIRS)
+	@norminette $(SRCS)
+
 -include configs/rules/STATUS.mk
 -include configs/rules/cleaners.mk
 -include configs/rules/optional.mk
