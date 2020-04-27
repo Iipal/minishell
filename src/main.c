@@ -6,18 +6,20 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 20:23:40 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/26 13:08:17 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 15:52:14 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int main(void)
+int main(int argc, char *argv[])
 {
 	char *restrict	line;
 	int				ret;
 	bool			stop;
 
+	if (1 < argc)
+		return run_args(argc - 1, argv + 1);
 	stop = false;
 	line = NULL;
 	ret = 0;

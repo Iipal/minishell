@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:04:26 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/25 21:33:46 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 16:00:26 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ command_tryrun_builtin(const struct s_command *restrict cmd)
 	return (bst);
 }
 
-void
+int
 command_run(const struct s_command *restrict cmd)
 {
 	pid_t	child;
@@ -75,9 +75,13 @@ command_run(const struct s_command *restrict cmd)
 	{
 		execve(cmd->argv[0], cmd->argv, environ);
 		ft_dprintf(STDERR_FILENO, "failed to run: '%s'.\n", cmd->argv[0]);
+		return (EXIT_FAILURE);
 	}
 	else
+	{
 		waitpid(child, NULL, WUNTRACED);
+		return (EXIT_SUCCESS);
+	}
 }
 
 void

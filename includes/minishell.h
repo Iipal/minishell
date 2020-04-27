@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 20:03:29 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/26 11:46:35 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 15:58:21 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@
 
 # define DFLT_EXE_PATH "/usr/bin"
 
+int
+run_args(int argc, char *argv[]);
+
 bool
 procces_line(char *restrict line);
 void
@@ -39,7 +42,7 @@ void
 command_free(struct s_command *restrict cmd);
 enum e_builtin_status
 command_tryrun_builtin(const struct s_command *restrict cmd);
-void
+int
 command_run(const struct s_command *restrict cmd);
 
 bool
