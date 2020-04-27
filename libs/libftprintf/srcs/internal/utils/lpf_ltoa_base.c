@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/19 21:22:22 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 22:17:23 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/27 22:23:52 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,17 @@
 
 char	*lpf_ultoap_base(unsigned long num, char *restrict dst, int base)
 {
-	char	temp[24] = { 0 };
-	long	digit = 0;
-	long	i = 0L, j =0L;
-	bool	dowhile_reducer = true;
+	char	*temp;
+	long	digit;
+	long	i;
+	long	j;
+	bool	dowhile_reducer;
 
+	dowhile_reducer = true;
+	temp = (char[24]) { 0 };
+	i = 0L;
+	digit = 0L;
+	j = 0L;
 	while (num > 0 || dowhile_reducer)
 	{
 		dowhile_reducer = false;
@@ -34,6 +40,5 @@ char	*lpf_ultoap_base(unsigned long num, char *restrict dst, int base)
 	--i;
 	while (i >= 0L)
 		dst[j++] = temp[i--];
-	dst[j] = 0;
 	return (dst);
 }
