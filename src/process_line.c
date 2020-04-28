@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:04:01 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/28 19:56:49 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/28 20:10:12 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ bool				procces_line(char *restrict *restrict line)
 
 	trimm_extra_whitespaces(line);
 	if (!ft_strlen(*line))
-	{
-		ft_putchar_fd('\n', STDERR_FILENO);
 		return (false);
-	}
 	if ((ret = !ft_strcmp(*line, "q")))
 		return (ret);
 	ft_memset(&cmd, 0, sizeof(cmd));
