@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 20:54:36 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/25 21:33:28 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/28 19:55:38 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ enum e_builtin_status	bcd(const struct s_command *restrict cmd)
 		chdir_path = getpwuid(getuid())->pw_dir;
 	if (-1 == chdir(chdir_path))
 	{
-		ft_dprintf(STDERR_FILENO, "cd: can't go to %s.\n", chdir_path);
+		ft_putstr_fd("cd: no such file or directory: ", STDERR_FILENO);
+		ft_putendl_fd(chdir_path, STDERR_FILENO);
 		return (e_bstatus_invalid);
 	}
 	return (e_bstatus_valid);

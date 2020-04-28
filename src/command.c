@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 11:04:26 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 20:24:23 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/28 19:48:24 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ enum e_builtin_status	command_tryrun_builtin(
 	{
 		if (g_bds[i].max_argc < cmd->argc)
 		{
-			ft_dprintf(STDERR_FILENO, "%s: too many arguments\n",
-				g_bds[i].bname);
+			ft_putstr_fd(g_bds[i].bname, STDERR_FILENO);
+			ft_putendl_fd(": too many arguments", STDERR_FILENO);
 			bst = e_bstatus_invalid;
 		}
 		else
@@ -72,8 +72,8 @@ int						command_run(const struct s_command *restrict cmd)
 	if (!child)
 	{
 		execve(cmd->argv[0], cmd->argv, g_environ);
-		ft_dprintf(STDERR_FILENO,
-			"minishell: command not found: %s\n", cmd->argv[0]);
+		ft_putstr_fd("minishell: command not found: ", STDERR_FILENO);
+		ft_putendl_fd(cmd->argv[0], STDERR_FILENO);
 		return (EXIT_FAILURE);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 20:03:29 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 20:14:54 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/28 19:54:34 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # define _GNU_SOURCE
 
 # include "libft.h"
-# include "libftprintf.h"
 
 # include "msh_structs.h"
 # include "msh_assert.h"
@@ -39,7 +38,7 @@ int
 run_args(int argc, char *argv[]);
 
 bool
-procces_line(char *restrict line);
+procces_line(char *restrict *restrict line);
 void
 process_special_symbols(struct s_command *restrict cmd);
 void

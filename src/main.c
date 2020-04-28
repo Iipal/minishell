@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 20:23:40 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 20:25:25 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/28 19:40:02 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ int	main(int argc, char *argv[])
 		ft_putstr_fd("$> ", STDERR_FILENO);
 		if (!(ret = ft_gnl(STDIN_FILENO, &line)) || 0 > ret)
 		{
+			ft_strdel(&line);
 			ft_putstr_fd("input error occured.\n", STDERR_FILENO);
 			break ;
 		}
-		stop = procces_line(line);
+		stop = procces_line(&line);
 		ft_strdel(&line);
 	}
 }

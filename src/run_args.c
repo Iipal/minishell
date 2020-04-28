@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 15:51:33 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/27 20:31:05 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/28 19:42:12 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int	run_args(int argc, char *argv[])
 {
 	struct s_command		cmd;
 	enum e_builtin_status	bst;
+	int						ret;
 
+	ret = EXIT_FAILURE;
 	ft_memset(&cmd, 0, sizeof(cmd));
 	MSH_ASSERT(cmd.argv = ft_memalloc(sizeof(*cmd.argv) * argc));
 	cmd.argc = ~0UL;
@@ -29,7 +31,8 @@ int	run_args(int argc, char *argv[])
 	else if (e_bstatus_none == bst)
 	{
 		get_executable_full_path(&cmd.argv[0]);
-		return (command_run(&cmd));
+		ret = command_run(&cmd);
 	}
-	return (EXIT_FAILURE);
+	command_free(&cmd);
+	return (ret);
 }

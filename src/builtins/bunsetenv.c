@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 20:54:36 by tmaluh            #+#    #+#             */
-/*   Updated: 2020/04/25 21:33:14 by tmaluh           ###   ########.fr       */
+/*   Updated: 2020/04/28 19:54:14 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ enum e_builtin_status	bunsetenv(const struct s_command *restrict cmd)
 		benv(cmd);
 	else if (-1 == unsetenv(cmd->argv[1]))
 	{
-		ft_dprintf(STDERR_FILENO,
-			"unsetenv: failed to remove '$%s' variable\n",
-			cmd->argv[1]);
+
+		ft_putstr_fd("unsetenv: failed to remove '$", STDERR_FILENO);
+		ft_putstr_fd(cmd->argv[1], STDERR_FILENO);
+		ft_putstr_fd("' variable\n", STDERR_FILENO);
 		return (e_bstatus_invalid);
 	}
 	return (e_bstatus_valid);
